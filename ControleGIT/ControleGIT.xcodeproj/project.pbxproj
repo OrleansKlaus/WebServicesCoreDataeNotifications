@@ -14,6 +14,8 @@
 		9EA6DC0A1AEE5AD200D349B8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EA6DC091AEE5AD200D349B8 /* Images.xcassets */; };
 		9EA6DC0D1AEE5AD200D349B8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EA6DC0B1AEE5AD200D349B8 /* LaunchScreen.xib */; };
 		9EA6DC191AEE5AD200D349B8 /* ControleGITTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA6DC181AEE5AD200D349B8 /* ControleGITTests.swift */; };
+		DDC23FE11AF0223F000F9C8B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC23FE01AF0223F000F9C8B /* TableViewController.swift */; };
+		DDC23FE31AF03F85000F9C8B /* CelulaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC23FE21AF03F85000F9C8B /* CelulaViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		9EA6DC121AEE5AD200D349B8 /* ControleGITTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ControleGITTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA6DC171AEE5AD200D349B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EA6DC181AEE5AD200D349B8 /* ControleGITTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControleGITTests.swift; sourceTree = "<group>"; };
+		DDC23FE01AF0223F000F9C8B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../TableViewController.swift; sourceTree = "<group>"; };
+		DDC23FE21AF03F85000F9C8B /* CelulaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CelulaViewController.swift; path = ../CelulaViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 			children = (
 				9EA6DBFF1AEE5AD200D349B8 /* AppDelegate.swift */,
 				9EA6DC041AEE5AD200D349B8 /* ViewController.swift */,
+				DDC23FE01AF0223F000F9C8B /* TableViewController.swift */,
+				DDC23FE21AF03F85000F9C8B /* CelulaViewController.swift */,
 				9EA6DC061AEE5AD200D349B8 /* Main.storyboard */,
 				9EA6DC091AEE5AD200D349B8 /* Images.xcassets */,
 				9EA6DC0B1AEE5AD200D349B8 /* LaunchScreen.xib */,
@@ -218,6 +224,8 @@
 				9EA6DC051AEE5AD200D349B8 /* ViewController.swift in Sources */,
 				9EA6DC031AEE5AD200D349B8 /* ControleGIT.xcdatamodeld in Sources */,
 				9EA6DC001AEE5AD200D349B8 /* AppDelegate.swift in Sources */,
+				DDC23FE31AF03F85000F9C8B /* CelulaViewController.swift in Sources */,
+				DDC23FE11AF0223F000F9C8B /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +423,7 @@
 				9EA6DC1E1AEE5AD200D349B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9EA6DC1F1AEE5AD200D349B8 /* Build configuration list for PBXNativeTarget "ControleGITTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +432,7 @@
 				9EA6DC211AEE5AD200D349B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
