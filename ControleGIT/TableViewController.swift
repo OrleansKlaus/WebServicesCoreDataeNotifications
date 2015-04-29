@@ -14,7 +14,7 @@ class TableViewController: UIViewController, UITableViewDelegate,UITableViewData
     var height = UIScreen.mainScreen().bounds.size.height/2
     var width = UIScreen.mainScreen().bounds.size.width/2
     var arrayProjetos = ["iDicionario", "minichallenge-1", "minichallenge -2"]
-
+    
     @IBOutlet weak var labelNome: UILabel!
     
     @IBOutlet weak var myTableView: UITableView!

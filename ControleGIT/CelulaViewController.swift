@@ -17,6 +17,7 @@ class CelulaViewController: UIViewController {
     var tituloLabel = String()
     var celulaClicada = NSIndexPath()
     var arrayMedalhas = ["bronze1","bronze2","bronz3","prata1","prata2","prata3","ouro1","ouro2","ouro3"]
+    var dicionarioTeste = [String:String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class CelulaViewController: UIViewController {
         
         labelTitulo.text = tituloLabel
                 
-        
+        dicionarioTeste[tituloLabel] = "bronze"
         self.criarLabels()
 
     }
@@ -51,6 +52,7 @@ class CelulaViewController: UIViewController {
             label.center = CGPointMake(CGFloat(largura) ,CGFloat(altura) )
             label.textAlignment = NSTextAlignment.Left
             label.text = arrayMedalhas[i]
+            label.text = dicionarioTeste[tituloLabel]
             self.view.addSubview(label)
             i++
             altura = altura + 20
