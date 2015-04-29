@@ -138,7 +138,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="label1" destination="4dZ-UC-d3u" id="CjM-Se-Q5b"/>
+                        <outlet property="labelTitulo" destination="4dZ-UC-d3u" id="r2m-dU-uaz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ApZ-63-t7R" userLabel="First Responder" sceneMemberID="firstResponder"/>

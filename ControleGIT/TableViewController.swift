@@ -19,9 +19,11 @@ class TableViewController: UIViewController, UITableViewDelegate,UITableViewData
     
     @IBOutlet weak var myTableView: UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
       
         self.createView()
     }
@@ -59,14 +61,19 @@ class TableViewController: UIViewController, UITableViewDelegate,UITableViewData
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let celula = sender as? UITableViewCell
         {
-            if let view = segue.destinationViewController as? CelulaViewController
-            {
+            
+            let notificacao: NSNotificationCenter = NSNotificationCenter.defaultCenter()
+            
+            notificacao.addObserver(segue.destinationViewController, selector: "criarTitulo:" , name: "novoNome", object: nil)
+
+
                 var nome = celula.textLabel?.text
-                view.tituloLabel = nome!
-                view.celulaClicada = self.myTableView.indexPathForCell(celula)!
-            }
+                let mensagem: NSDictionary = NSDictionary(object: nome!, forKey: "mensagem")
+                notificacao.postNotificationName("novoNome", object: self, userInfo: mensagem as [NSObject: AnyObject])
+            
             println(" celula \(celula.textLabel?.text)")
             }
+        
     }
     
 

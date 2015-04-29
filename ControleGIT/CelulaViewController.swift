@@ -10,7 +10,7 @@ import UIKit
 
 class CelulaViewController: UIViewController {
 
-    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var labelTitulo: UILabel!
     
     var height = UIScreen.mainScreen().bounds.size.height/2
     var width = UIScreen.mainScreen().bounds.size.width/2
@@ -20,21 +20,42 @@ class CelulaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Notificacao
+        
+        labelTitulo.text = tituloLabel
+                
+        
+        self.criarLabels()
+
+    }
+    func criarTitulo(mensagem: NSNotification){
+        
+        let info: Dictionary<String,String!> = mensagem.userInfo as! Dictionary<String,String!>
+        
+        var Titulo = info["mensagem"]
+        
+        tituloLabel = Titulo!
+
+    }
+    
+    
+    
+    func  criarLabels(){
+        
         var altura = 200
         var largura = 200
         var i = 0
         for (index, element) in enumerate(arrayMedalhas){
-        var label = UILabel(frame: CGRectMake(0, 0, 200, 21))
-        label.center = CGPointMake(CGFloat(largura) ,CGFloat(altura) )
-        label.textAlignment = NSTextAlignment.Left
-        label.text = arrayMedalhas[i]
-        self.view.addSubview(label)
+            var label = UILabel(frame: CGRectMake(0, 0, 200, 21))
+            label.center = CGPointMake(CGFloat(largura) ,CGFloat(altura) )
+            label.textAlignment = NSTextAlignment.Left
+            label.text = arrayMedalhas[i]
+            self.view.addSubview(label)
             i++
             altura = altura + 20
         }
-        label1.text = tituloLabel
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
