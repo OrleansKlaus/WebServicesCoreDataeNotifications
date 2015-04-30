@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E2B39B11AF26E3C0045429D /* JSONService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2B39AF1AF26E3C0045429D /* JSONService.swift */; };
+		5E2B39B21AF26E3C0045429D /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2B39B01AF26E3C0045429D /* JSON.swift */; };
 		5E7939281AF12C3600E451C9 /* repositorio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7939271AF12C3600E451C9 /* repositorio.swift */; };
 		5E79392A1AF12C3700E451C9 /* tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7939291AF12C3700E451C9 /* tag.swift */; };
 		5E79392C1AF12C3700E451C9 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E79392B1AF12C3700E451C9 /* user.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E2B39AF1AF26E3C0045429D /* JSONService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONService.swift; sourceTree = "<group>"; };
+		5E2B39B01AF26E3C0045429D /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		5E7939271AF12C3600E451C9 /* repositorio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = repositorio.swift; path = ../repositorio.swift; sourceTree = "<group>"; };
 		5E7939291AF12C3700E451C9 /* tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tag.swift; path = ../tag.swift; sourceTree = "<group>"; };
 		5E79392B1AF12C3700E451C9 /* user.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = user.swift; path = ../user.swift; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 				9EA6DC041AEE5AD200D349B8 /* ViewController.swift */,
 				DDC23FE01AF0223F000F9C8B /* TableViewController.swift */,
 				DDC23FE21AF03F85000F9C8B /* CelulaViewController.swift */,
+				5E2B39AF1AF26E3C0045429D /* JSONService.swift */,
+				5E2B39B01AF26E3C0045429D /* JSON.swift */,
 				9EA6DC061AEE5AD200D349B8 /* Main.storyboard */,
 				9EA6DC091AEE5AD200D349B8 /* Images.xcassets */,
 				9EA6DC0B1AEE5AD200D349B8 /* LaunchScreen.xib */,
@@ -258,6 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E2B39B11AF26E3C0045429D /* JSONService.swift in Sources */,
+				5E2B39B21AF26E3C0045429D /* JSON.swift in Sources */,
 				5E79392E1AF12C7C00E451C9 /* Search.swift in Sources */,
 				5E79392A1AF12C3700E451C9 /* tag.swift in Sources */,
 				9EA6DC051AEE5AD200D349B8 /* ViewController.swift in Sources */,
