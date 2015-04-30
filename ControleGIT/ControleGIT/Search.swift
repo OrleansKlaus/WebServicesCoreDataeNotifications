@@ -9,7 +9,7 @@
 import Foundation
 
 class Search: NSObject, NSURLConnectionDataDelegate {
-
+    
     //singleton
     static let sharedInstance = Search()
     override init(){}
@@ -20,26 +20,33 @@ class Search: NSObject, NSURLConnectionDataDelegate {
     var search = "gabrielalbertojesuspreto"
     
     var jsonData: NSMutableData!
-    var data: NSMutableArray!
+    var data: NSDictionary!
     
-    func buscaUsuario(){
+    func searchUser(){
         let loginString = NSString(format: "%@:%@", user, senha)
         let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
         let base64LoginString = loginData.base64EncodedStringWithOptions(nil)
         
-        //let url = NSURL(string: "https://api.github.com/search/users?q=\(search)/repos")
-        let url = NSURL(string: "​https://api.github.com/user/\(search)/repos")
+        let url = NSURL(string: "https://api.github.com/search/users?q=\(user)")
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "GET"
+        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
         
-        JSONService.GET(url!, user: user, password: senha) .success(self.teste, queue: nil) .failure(testeError, queue: NSOperationQueue.mainQueue())
+        let urlConnection = NSURLConnection(request: request, delegate: self, startImmediately: true)
+        urlConnection?.start()
     }
     
-    func teste(json:AnyObject){
-        self.data = json as! NSMutableArray
+    func connection(connection: NSURLConnection, didReceiveData data: NSData) {
+        self.jsonData?.appendData(data)
+    }
+    
+    func connection(connection: NSURLConnection, didReceiveResponse response: NSURLResponse) {
+        self.jsonData = NSMutableData()
+    }
+    
+    func connectionDidFinishLoading(connection: NSURLConnection) {
+        self.data = NSJSONSerialization.JSONObjectWithData(self.jsonData, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSDictionary
         println(data)
-    }
-    
-    func testeError(statusCode: Int, error: NSError?){
-        println("erro")
     }
     
 }
