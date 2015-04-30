@@ -9,7 +9,8 @@
 import Foundation
 import CoreData
 
-class tag: NSManagedObject {
+@objc(Tag)
+class Tag: NSManagedObject {
 
     @NSManaged var cor: String
     @NSManaged var data: NSDate

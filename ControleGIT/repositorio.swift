@@ -9,9 +9,16 @@
 import Foundation
 import CoreData
 
+@objc(repositorio)
 class repositorio: NSManagedObject {
 
     @NSManaged var name: String
-    @NSManaged var tags: tag
+    @NSManaged var tags: Tag
+    
+// Orleans inclui a extensao de Tag
+    func addTag(tag:Tag) {
+        var tags = self.mutableSetValueForKey("tags")
+        tags.addObject(tag)
+    }
 
 }

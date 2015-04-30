@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@objc(user)
 class user: NSManagedObject {
 
     @NSManaged var password: String
