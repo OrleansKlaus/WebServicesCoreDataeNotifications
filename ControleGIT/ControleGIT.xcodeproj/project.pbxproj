@@ -100,6 +100,17 @@
 			name = "CoreData Managers";
 			sourceTree = "<group>";
 		};
+		9E56195F1AF27C6F00B52AA8 /* WebService */ = {
+			isa = PBXGroup;
+			children = (
+				9EA6DBFF1AEE5AD200D349B8 /* AppDelegate.swift */,
+				5E2B39AF1AF26E3C0045429D /* JSONService.swift */,
+				5E2B39B01AF26E3C0045429D /* JSON.swift */,
+				5E79392D1AF12C7C00E451C9 /* Search.swift */,
+			);
+			name = WebService;
+			sourceTree = "<group>";
+		};
 		9EA6DBF11AEE5AD200D349B8 = {
 			isa = PBXGroup;
 			children = (
@@ -123,13 +134,10 @@
 			children = (
 				9E5619561AF24EB400B52AA8 /* CoreData Managers */,
 				9E5619551AF24CBA00B52AA8 /* Entidades */,
-				5E79392D1AF12C7C00E451C9 /* Search.swift */,
-				9EA6DBFF1AEE5AD200D349B8 /* AppDelegate.swift */,
+				9E56195F1AF27C6F00B52AA8 /* WebService */,
 				9EA6DC041AEE5AD200D349B8 /* ViewController.swift */,
 				DDC23FE01AF0223F000F9C8B /* TableViewController.swift */,
 				DDC23FE21AF03F85000F9C8B /* CelulaViewController.swift */,
-				5E2B39AF1AF26E3C0045429D /* JSONService.swift */,
-				5E2B39B01AF26E3C0045429D /* JSON.swift */,
 				9EA6DC061AEE5AD200D349B8 /* Main.storyboard */,
 				9EA6DC091AEE5AD200D349B8 /* Images.xcassets */,
 				9EA6DC0B1AEE5AD200D349B8 /* LaunchScreen.xib */,
