@@ -77,11 +77,12 @@ class JSONService
     
     private func execute()
     {
-        let request = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = name
         let loginString = NSString(format: "%@:%@", usuario, senha)
         let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
-        let base64LoginString = loginData.base64EncodedDataWithOptions(nil)
+        let base64LoginString = loginData.base64EncodedStringWithOptions(nil)
+        
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = name
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
         NSURLSession.sharedSession().dataTaskWithRequest(request)
             {

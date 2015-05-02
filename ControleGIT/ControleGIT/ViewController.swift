@@ -36,16 +36,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-   
+    @IBAction func signIn(sender: AnyObject) {
+        self.performSegueWithIdentifier("proximo", sender: self)
+    }
         
-        @IBAction func signIn(sender: AnyObject) {
-            self.performSegueWithIdentifier("proximo", sender: self)
-        }
-        
-    
-    
- 
-        
-    
 }
 

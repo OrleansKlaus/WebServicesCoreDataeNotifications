@@ -15,6 +15,7 @@ class TableViewController: UIViewController, UITableViewDelegate,UITableViewData
     var width = UIScreen.mainScreen().bounds.size.width/2
     var arrayProjetos = ["iDicionario", "minichallenge-1", "minichallenge -2"]
     
+    let searchUser: Search = Search.sharedInstance
     @IBOutlet weak var labelNome: UILabel!
     
     @IBOutlet weak var myTableView: UITableView!
@@ -22,10 +23,10 @@ class TableViewController: UIViewController, UITableViewDelegate,UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
-      
         self.createView()
+        
+        searchUser.buscaUsuario()
+        
     }
     
     func createView(){
@@ -75,11 +76,6 @@ class TableViewController: UIViewController, UITableViewDelegate,UITableViewData
             }
         
     }
-    
-
-    
-
-   
     
     /*
     // MARK: - Navigation

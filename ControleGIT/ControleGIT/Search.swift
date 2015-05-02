@@ -8,38 +8,37 @@
 
 import Foundation
 
-class Search: NSObject, NSURLConnectionDataDelegate {
-
-    //singleton
-    static let sharedInstance = Search()
-    override init(){}
-    //
+class Search: NSObject{
+    var user = "gabrielalbertojesuspreto"
+    var senha = "gabriel1234"
+    var username: String!
+    var password: String!
+    var image: NSData!
     
-    var user = "iTeste"
-    var senha = "iteste1234"
-    var search = "gabrielalbertojesuspreto"
+    private override init(){}
+    static let sharedInstance = Search();
     
-    var jsonData: NSMutableData!
-    var data: NSMutableArray!
+    
+    var dataUser: NSDictionary!
+    var dataRepo: NSArray!
+    
+    
     
     func buscaUsuario(){
-        let loginString = NSString(format: "%@:%@", user, senha)
-        let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
-        let base64LoginString = loginData.base64EncodedStringWithOptions(nil)
-        
-        //let url = NSURL(string: "https://api.github.com/search/users?q=\(search)/repos")
-        let url = NSURL(string: "​https://api.github.com/user/\(search)/repos")
-        
-        JSONService.GET(url!, user: user, password: senha) .success(self.teste, queue: nil) .failure(testeError, queue: NSOperationQueue.mainQueue())
+        let url = NSURL(string: "https://api.github.com/search/users?q=gabrielalbertojesuspreto")
+        JSONService.GET(url!, user: user, password: senha).success(self.successOk, queue: nil) .failure(throwError, queue: NSOperationQueue.mainQueue())
     }
     
-    func teste(json:AnyObject){
-        self.data = json as! NSMutableArray
-        println(data)
+    func successOk(json:AnyObject){
+        self.dataUser = json as! NSDictionary
+        println(dataUser)
+        println("//////////////////////")
+        username = dataUser.valueForKey("items")!.valueForKey("login")![0] as! String
+        println(username)
+        println(dataUser.valueForKey("items")!.valueForKey("avatar_url")![0] as! String)
     }
     
-    func testeError(statusCode: Int, error: NSError?){
+    func throwError(statusCode: Int, error: NSError?){
         println("erro")
     }
-    
 }
