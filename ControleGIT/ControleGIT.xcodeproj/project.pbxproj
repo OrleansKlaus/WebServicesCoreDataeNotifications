@@ -100,6 +100,7 @@
 				9EA6DBFF1AEE5AD200D349B8 /* AppDelegate.swift */,
 				5E2B39AF1AF26E3C0045429D /* JSONService.swift */,
 				5E2B39B01AF26E3C0045429D /* JSON.swift */,
+				DD57C2DC1AF5FFE90080C10E /* Search.swift */,
 				DD57C2C81AF5F2FF0080C10E /* Search.swift */,
 				DD57C2D41AF5FC300080C10E /* Search.swift */,
 			);
@@ -271,6 +272,7 @@
 				5E7939281AF12C3600E451C9 /* repositorio.swift in Sources */,
 				9E56195E1AF259BB00B52AA8 /* UserManager.swift in Sources */,
 				9EA6DC001AEE5AD200D349B8 /* AppDelegate.swift in Sources */,
+				DD57C2DD1AF5FFE90080C10E /* Search.swift in Sources */,
 				DD57C2D91AF5FC300080C10E /* ViewController.swift in Sources */,
 				DDC23FE31AF03F85000F9C8B /* CelulaViewController.swift in Sources */,
 				5E79392C1AF12C3700E451C9 /* user.swift in Sources */,
