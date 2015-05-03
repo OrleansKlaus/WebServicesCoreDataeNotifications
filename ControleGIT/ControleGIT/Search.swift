@@ -18,8 +18,6 @@ class Search: NSObject{
     
     var senha : String!
     
-    //   var user1 = "gabrielalbertojesuspreto"
-    //    var senha = "gabriel1234"
     var username: String!
     var password: String!
     var image: NSData!
@@ -27,7 +25,13 @@ class Search: NSObject{
     var pronto = Bool()
     
     ////////
-    var repositorios: NSDictionary!
+    var repositorios: NSMutableArray!
+    var arrayMackAux: NSDictionary!
+    var arrayMackMobile: NSMutableArray!
+    
+    //
+    var array: NSMutableArray!
+    var userPull: NSDictionary!
     
     private override init(){
         super.init()
@@ -53,11 +57,83 @@ class Search: NSObject{
     
     
     func buscaUsuario(){
-        
         println(user1)
         println(senha)
         let url = NSURL(string: "https://api.github.com/search/users?q=\(user1)")
         JSONService.GET(url!, user: user1, password: senha).success(self.successOk, queue: nil) .failure(throwError, queue: NSOperationQueue.mainQueue())
+    }
+    
+    func buscaRepositorios() -> NSMutableArray{
+        let url = NSURL(string: "https://api.github.com/users/\(user1)/repos")
+        JSONService.GET(url!, user: user1, password: senha).success(self.successRepoOk, queue: nil).failure(throwError, queue: NSOperationQueue.mainQueue())
+        
+        ////////coloca um break em baixo//////
+        println(repositorios)
+        
+        return repositorios
+    }
+    
+    func searchMackMobile() -> NSMutableArray {
+        
+        let todos = self.buscaRepositorios()
+        
+        var arrayOthersRepository = NSMutableArray()
+        
+        for var i = 0; i < todos.count; i++ {
+            let urlRe = todos[i]["url"] as! String
+            let url = NSURL(string: urlRe)
+            JSONService.GET(url!, user: user1, password: senha).success(self.successMackOk, queue: nil).failure(throwError, queue: NSOperationQueue.mainQueue())
+            
+            if let parent: AnyObject = arrayMackAux["parent"] {
+                if let owner: AnyObject = parent["owner"] {
+                    if let login: AnyObject = owner["login"] {
+                        if login as! String == "mackmobile" {
+                            arrayMackMobile.addObject(arrayMackAux)
+                        }
+                    }
+                }
+            }
+        }
+        return arrayMackMobile
+    }
+    
+    func searchBadges(nomeRepo: String) -> NSMutableArray{
+        var page = 1
+        var arrayCompleto = NSMutableArray()
+        //var array = NSMutableArray()
+        var tags = NSMutableArray()
+        do {
+            let url = NSURL(string: "https://api.github.com/repos/mackmobile/\(nomeRepo)/pulls?state=all&page=\(page)")
+            JSONService.GET(url!, user: user1, password: senha).success(self.successTagOk, queue: nil).failure(throwError, queue: NSOperationQueue.mainQueue())
+            repositorios.addObjectsFromArray(array as [AnyObject])
+            page++
+        } while array.count != 0
+        
+        var number = -1
+        for var i=0; i < arrayCompleto.count; i++ {
+            let userRepo = arrayCompleto[i]["user"] as! NSDictionary
+            let login = userRepo["login"] as! String
+            
+            
+            if login == user1 {
+                number = arrayCompleto[i]["number"] as! Int
+                break
+            }
+        }
+        
+        if number>0 {
+            let url = NSURL(string: "https://api.github.com/repos/mackmobile/\(nomeRepo)/issues/\(number)")
+            JSONService.GET(url!, user: user1, password: senha).success(self.successPullOk, queue: nil).failure(throwError, queue: NSOperationQueue.mainQueue())
+            if let labels: AnyObject = userPull["labels"] as? NSArray {
+                for var i=0; i < labels.count; i++ {
+                    
+                    ///Logica para as TAGS
+                    
+                }
+            }
+        }
+        
+        return tags
     }
     
     func successOk(json:AnyObject){
@@ -82,29 +158,32 @@ class Search: NSObject{
                 self.pronto = false
                 let notificacao: NSNotificationCenter = NSNotificationCenter.defaultCenter()
                 notificacao.postNotificationName("resposta", object: self)}}
-        
-        
     }
-    
     
     func throwError(statusCode: Int, error: NSError?){
         println("erro")
     }
-
-    
-    func buscaRepositorios(){
-        let url = NSURL(string: "https://api.github.com/users/\(user1)/repos")
-        JSONService.GET(url!, user: user1, password: senha).success(self.successRepoOk, queue: nil).failure(throwError, queue: NSOperationQueue.mainQueue())
-        
-        ////////coloca um break em baixo//////
-        println(repositorios)
-    }
     
     func successRepoOk(json:AnyObject){
-        self.repositorios = ["Data" : json as! NSMutableArray]
+        self.repositorios = json as! NSMutableArray
         
         ////////coloca um break em baixo
         println(repositorios)
+    }
+    
+    func successMackOk(json:AnyObject){
+        self.arrayMackAux = json as! NSDictionary
+        println(arrayMackMobile)
+    }
+    
+    func successTagOk(json:AnyObject){
+        self.array = json as! NSMutableArray
+        println(array)
+    }
+    
+    func successPullOk(json:AnyObject){
+        self.userPull = json as! NSDictionary
+        println(userPull)
     }
 
 }

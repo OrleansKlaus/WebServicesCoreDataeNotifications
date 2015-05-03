@@ -47,6 +47,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         searchUser.buscaRepositorios()
         
         ////////coloca um break em baixo
+        while searchUser.repositorios == nil{}
+        
         println(searchUser.repositorios)
         
     }
