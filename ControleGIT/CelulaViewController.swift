@@ -10,6 +10,8 @@ import UIKit
 
 class CelulaViewController: UIViewController {
 
+    //teste view 3
+    
     @IBOutlet weak var labelTitulo: UILabel!
     
     var height = UIScreen.mainScreen().bounds.size.height/2
