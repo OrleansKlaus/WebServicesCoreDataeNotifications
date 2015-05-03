@@ -13,6 +13,9 @@
 		5E79392A1AF12C3700E451C9 /* tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7939291AF12C3700E451C9 /* tag.swift */; };
 		5E79392C1AF12C3700E451C9 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E79392B1AF12C3700E451C9 /* user.swift */; };
 		5EDABF901AF6010300D449BD /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDABF8F1AF6010300D449BD /* Search.swift */; };
+		5EDABF921AF602B500D449BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EDABF911AF602B500D449BD /* Main.storyboard */; };
+		5EDABF941AF602D200D449BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDABF931AF602D200D449BD /* ViewController.swift */; };
+		5EDABF961AF602E800D449BD /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDABF951AF602E800D449BD /* TableViewController.swift */; };
 		9E56195A1AF2529F00B52AA8 /* RepositorioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5619591AF2529F00B52AA8 /* RepositorioManager.swift */; };
 		9E56195C1AF2579000B52AA8 /* TagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E56195B1AF2579000B52AA8 /* TagManager.swift */; };
 		9E56195E1AF259BB00B52AA8 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E56195D1AF259BB00B52AA8 /* UserManager.swift */; };
@@ -41,6 +44,9 @@
 		5E7939291AF12C3700E451C9 /* tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = tag.swift; path = ../tag.swift; sourceTree = "<group>"; };
 		5E79392B1AF12C3700E451C9 /* user.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = user.swift; path = ../user.swift; sourceTree = "<group>"; };
 		5EDABF8F1AF6010300D449BD /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		5EDABF911AF602B500D449BD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5EDABF931AF602D200D449BD /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../ViewController.swift; sourceTree = "<group>"; };
+		5EDABF951AF602E800D449BD /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = ../TableViewController.swift; sourceTree = "<group>"; };
 		9E5619591AF2529F00B52AA8 /* RepositorioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositorioManager.swift; sourceTree = "<group>"; };
 		9E56195B1AF2579000B52AA8 /* TagManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagManager.swift; sourceTree = "<group>"; };
 		9E56195D1AF259BB00B52AA8 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
@@ -130,7 +136,10 @@
 				9E5619551AF24CBA00B52AA8 /* Entidades */,
 				9E56195F1AF27C6F00B52AA8 /* WebService */,
 				DDC23FE21AF03F85000F9C8B /* CelulaViewController.swift */,
+				5EDABF951AF602E800D449BD /* TableViewController.swift */,
+				5EDABF931AF602D200D449BD /* ViewController.swift */,
 				9EA6DC091AEE5AD200D349B8 /* Images.xcassets */,
+				5EDABF911AF602B500D449BD /* Main.storyboard */,
 				9EA6DC0B1AEE5AD200D349B8 /* LaunchScreen.xib */,
 				9EA6DC011AEE5AD200D349B8 /* ControleGIT.xcdatamodeld */,
 				9EA6DBFD1AEE5AD200D349B8 /* Supporting Files */,
@@ -243,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EDABF921AF602B500D449BD /* Main.storyboard in Resources */,
 				9EA6DC0D1AEE5AD200D349B8 /* LaunchScreen.xib in Resources */,
 				9EA6DC0A1AEE5AD200D349B8 /* Images.xcassets in Resources */,
 			);
@@ -263,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E2B39B11AF26E3C0045429D /* JSONService.swift in Sources */,
+				5EDABF961AF602E800D449BD /* TableViewController.swift in Sources */,
 				5E2B39B21AF26E3C0045429D /* JSON.swift in Sources */,
 				5E79392A1AF12C3700E451C9 /* tag.swift in Sources */,
 				9EA6DC031AEE5AD200D349B8 /* ControleGIT.xcdatamodeld in Sources */,
@@ -270,6 +281,7 @@
 				9E56195E1AF259BB00B52AA8 /* UserManager.swift in Sources */,
 				9EA6DC001AEE5AD200D349B8 /* AppDelegate.swift in Sources */,
 				DDC23FE31AF03F85000F9C8B /* CelulaViewController.swift in Sources */,
+				5EDABF941AF602D200D449BD /* ViewController.swift in Sources */,
 				5E79392C1AF12C3700E451C9 /* user.swift in Sources */,
 				5EDABF901AF6010300D449BD /* Search.swift in Sources */,
 				9E56195A1AF2529F00B52AA8 /* RepositorioManager.swift in Sources */,
