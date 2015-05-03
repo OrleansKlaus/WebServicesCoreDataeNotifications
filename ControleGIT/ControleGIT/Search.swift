@@ -29,7 +29,7 @@ class Search: NSObject{
     var arrayMackAux: NSDictionary!
     var arrayMackMobile: NSMutableArray!
     
-    //
+    /////////////////
     var array: NSMutableArray!
     var userPull: NSDictionary!
     
