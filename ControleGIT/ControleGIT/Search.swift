@@ -26,6 +26,9 @@ class Search: NSObject{
     var urlImage = String()
     var pronto = Bool()
     
+    ////////
+    var repositorios: NSDictionary!
+    
     private override init(){
         super.init()
     }
@@ -87,4 +90,21 @@ class Search: NSObject{
     func throwError(statusCode: Int, error: NSError?){
         println("erro")
     }
+
+    
+    func buscaRepositorios(){
+        let url = NSURL(string: "https://api.github.com/users/\(user1)/repos")
+        JSONService.GET(url!, user: user1, password: senha).success(self.successRepoOk, queue: nil).failure(throwError, queue: NSOperationQueue.mainQueue())
+        
+        ////////coloca um break em baixo//////
+        println(repositorios)
+    }
+    
+    func successRepoOk(json:AnyObject){
+        self.repositorios = ["Data" : json as! NSMutableArray]
+        
+        ////////coloca um break em baixo
+        println(repositorios)
+    }
+
 }

@@ -42,6 +42,17 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         avatar = UIImage(data: data!)
         self.createImage()
         
+        println("TESTETESTETSTETSTETSTTETSTETSTETSTETSTETSTETS")
+        
+        searchUser.buscaRepositorios()
+        
+        ////////coloca um break em baixo
+        println(searchUser.repositorios)
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        println(searchUser.repositorios)
     }
     
     func createImage(){
