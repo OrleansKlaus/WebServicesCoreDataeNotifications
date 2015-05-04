@@ -11,7 +11,6 @@ import Foundation
 class Search: NSObject{
     
     lazy var user1 :String = {
-        println("lalala")
         return""
         }()
     
@@ -54,11 +53,9 @@ class Search: NSObject{
     var dataUser: NSDictionary!
     var dataRepo: NSArray!
     
-    
-    
     func buscaUsuario(){
-        println(user1)
-        println(senha)
+        //println(user1)
+        //println(senha)
         let url = NSURL(string: "https://api.github.com/search/users?q=\(user1)")
         JSONService.GET(url!, user: user1, password: senha).success(self.successOk, queue: nil) .failure(throwError, queue: NSOperationQueue.mainQueue())
     }
@@ -67,22 +64,20 @@ class Search: NSObject{
         let url = NSURL(string: "https://api.github.com/users/\(user1)/repos")
         JSONService.GET(url!, user: user1, password: senha).success(self.successRepoOk, queue: nil).failure(throwError, queue: NSOperationQueue.mainQueue())
         
-        ////////coloca um break em baixo//////
-        println(repositorios)
-        
+        while repositorios==nil{}
         return repositorios
     }
     
     func searchMackMobile() -> NSMutableArray {
         
         let todos = self.buscaRepositorios()
-        
-        var arrayOthersRepository = NSMutableArray()
-        
+        //println(todos)
+        arrayMackMobile = NSMutableArray()
         for var i = 0; i < todos.count; i++ {
-            let urlRe = todos[i]["url"] as! String
-            let url = NSURL(string: urlRe)
+            let url = NSURL(string: todos[i]["url"] as! String)
             JSONService.GET(url!, user: user1, password: senha).success(self.successMackOk, queue: nil).failure(throwError, queue: NSOperationQueue.mainQueue())
+            
+            while arrayMackAux == nil{}
             
             if let parent: AnyObject = arrayMackAux["parent"] {
                 if let owner: AnyObject = parent["owner"] {
@@ -93,11 +88,12 @@ class Search: NSObject{
                     }
                 }
             }
+            arrayMackAux = nil;
         }
         return arrayMackMobile
     }
     
-    func searchBadges(nomeRepo: String) -> NSMutableArray{
+    func buscarTags(nomeRepo: String) -> NSMutableArray{
         var page = 1
         var arrayCompleto = NSMutableArray()
         //var array = NSMutableArray()
@@ -138,8 +134,8 @@ class Search: NSObject{
     
     func successOk(json:AnyObject){
         self.dataUser = json as! NSDictionary
-        println(dataUser)
-        println("//////////////////////")
+        //println(dataUser)
+        //println("//////////////////////")
         
         if(dataUser.valueForKey("documentation_url") as? String != "https://developer.github.com/v3"){
             NSOperationQueue.mainQueue().addOperationWithBlock {
@@ -166,24 +162,18 @@ class Search: NSObject{
     
     func successRepoOk(json:AnyObject){
         self.repositorios = json as! NSMutableArray
-        
-        ////////coloca um break em baixo
-        println(repositorios)
     }
     
     func successMackOk(json:AnyObject){
         self.arrayMackAux = json as! NSDictionary
-        println(arrayMackMobile)
     }
     
     func successTagOk(json:AnyObject){
         self.array = json as! NSMutableArray
-        println(array)
     }
     
     func successPullOk(json:AnyObject){
         self.userPull = json as! NSDictionary
-        println(userPull)
     }
 
 }

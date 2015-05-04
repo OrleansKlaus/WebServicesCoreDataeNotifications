@@ -21,7 +21,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var senha: String!
     var userData: NSDictionary!
     var avatar: UIImage!
-    
+    var arrayRepositorios: NSMutableArray!
+    var arrayMackmobile: NSMutableArray!
     
     let searchUser: Search = Search.sharedInstance
     @IBOutlet weak var labelNome: UILabel!
@@ -35,53 +36,52 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         
         labelNome.text = searchUser.username
-        println("lalala")
-        println(searchUser.username)
+        //println("lalala")
+        //println(searchUser.username)
         
         var data = NSData(contentsOfURL: NSURL(string:searchUser.urlImage)!)
         avatar = UIImage(data: data!)
         self.createImage()
         
-        println("TESTETESTETSTETSTETSTTETSTETSTETSTETSTETSTETS")
+        //println("TESTETESTETSTETSTETSTTETSTETSTETSTETSTETSTETS")
         
-        searchUser.buscaRepositorios()
+        //searchUser.buscaRepositorios()
         
-        ////////coloca um break em baixo
-        while searchUser.repositorios == nil{}
+        //arrayRepositorios = searchUser.repositorios
+        //println(arrayRepositorios)
         
-        println(searchUser.repositorios)
+        arrayMackmobile = searchUser.searchMackMobile()
         
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        println(searchUser.repositorios)
+        while arrayMackmobile == nil{}
+        println(arrayMackmobile)
+        
     }
     
     func createImage(){
         let imageView = UIImageView(image: avatar)
         imageView.frame = CGRectMake(width - 75, height - 240, 150, 150)
         imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 40
+        imageView.layer.cornerRadius = 70
         view.addSubview(imageView)
         
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.arrayProjetos.count;
+        //return self.arrayMackmobile.count;
+        return self.arrayMackmobile.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = myTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
         
-        cell.textLabel?.text = self.arrayProjetos[indexPath.row]
-        
+        cell.textLabel?.text = self.arrayMackmobile[indexPath.row].valueForKey("parent")?.valueForKey("name") as! String
         return cell
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Mackmobile"
+        return "Repositórios do Mackmobile"
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
