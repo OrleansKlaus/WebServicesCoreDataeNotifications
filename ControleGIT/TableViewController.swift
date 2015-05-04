@@ -11,8 +11,6 @@ import UIKit
 
 class TableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSURLConnectionDataDelegate, NSURLConnectionDelegate {
     
-    // teste view 2
-    
     var viewFoto = UIView()
     var height = UIScreen.mainScreen().bounds.size.height/2
     var width = UIScreen.mainScreen().bounds.size.width/2
@@ -33,26 +31,14 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         labelNome.text = searchUser.username
-        //println("lalala")
-        //println(searchUser.username)
         
         var data = NSData(contentsOfURL: NSURL(string:searchUser.urlImage)!)
         avatar = UIImage(data: data!)
         self.createImage()
         
-        //println("TESTETESTETSTETSTETSTTETSTETSTETSTETSTETSTETS")
-        
-        //searchUser.buscaRepositorios()
-        
-        //arrayRepositorios = searchUser.repositorios
-        //println(arrayRepositorios)
-        
         arrayMackmobile = searchUser.searchMackMobile()
-        
-        while arrayMackmobile == nil{}
+
         println(arrayMackmobile)
         
     }
@@ -67,7 +53,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return self.arrayMackmobile.count;
         return self.arrayMackmobile.count
     }
     

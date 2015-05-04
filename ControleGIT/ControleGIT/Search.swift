@@ -23,13 +23,11 @@ class Search: NSObject{
     var urlImage = String()
     var pronto = Bool()
     
-    ////////
     var repositorios: NSMutableArray!
     var arrayMackAux: NSDictionary!
     var arrayMackMobile: NSMutableArray!
     
-    /////////////////
-    var array: NSMutableArray!
+    var array: NSArray!
     var userPull: NSDictionary!
     
     private override init(){
@@ -48,14 +46,11 @@ class Search: NSObject{
         return Static.instance!
     }
     
-    //
     
     var dataUser: NSDictionary!
     var dataRepo: NSArray!
     
     func buscaUsuario(){
-        //println(user1)
-        //println(senha)
         let url = NSURL(string: "https://api.github.com/search/users?q=\(user1)")
         JSONService.GET(url!, user: user1, password: senha).success(self.successOk, queue: nil) .failure(throwError, queue: NSOperationQueue.mainQueue())
     }
@@ -71,7 +66,6 @@ class Search: NSObject{
     func searchMackMobile() -> NSMutableArray {
         
         let todos = self.buscaRepositorios()
-        //println(todos)
         arrayMackMobile = NSMutableArray()
         for var i = 0; i < todos.count; i++ {
             let url = NSURL(string: todos[i]["url"] as! String)
@@ -94,37 +88,41 @@ class Search: NSObject{
     }
     
     func buscarTags(nomeRepo: String) -> NSMutableArray{
-        var page = 1
+        var page = 0
         var arrayCompleto = NSMutableArray()
-        //var array = NSMutableArray()
         var tags = NSMutableArray()
         do {
             let url = NSURL(string: "https://api.github.com/repos/mackmobile/\(nomeRepo)/pulls?state=all&page=\(page)")
             JSONService.GET(url!, user: user1, password: senha).success(self.successTagOk, queue: nil).failure(throwError, queue: NSOperationQueue.mainQueue())
-            repositorios.addObjectsFromArray(array as [AnyObject])
+            
+            while array == nil{}
+            for(var i=0; i<array.count; i++){
+                arrayCompleto.addObject(array[i])
+            }
+            array = nil
             page++
-        } while array.count != 0
+        } while page < 3
         
         var number = -1
         for var i=0; i < arrayCompleto.count; i++ {
             let userRepo = arrayCompleto[i]["user"] as! NSDictionary
             let login = userRepo["login"] as! String
             
-            
-            if login == user1 {
+            if (login.lowercaseString == user1.lowercaseString) {
                 number = arrayCompleto[i]["number"] as! Int
                 break
             }
         }
         
-        if number>0 {
+        if (number>0) {
             let url = NSURL(string: "https://api.github.com/repos/mackmobile/\(nomeRepo)/issues/\(number)")
             JSONService.GET(url!, user: user1, password: senha).success(self.successPullOk, queue: nil).failure(throwError, queue: NSOperationQueue.mainQueue())
-            if let labels: AnyObject = userPull["labels"] as? NSArray {
+            
+            while userPull == nil{}
+            
+            if let labels: AnyObject = (userPull["labels"] as? NSMutableArray){
                 for var i=0; i < labels.count; i++ {
-                    
-                    ///Logica para as TAGS
-                    
+                    tags = labels as! NSMutableArray
                 }
             }
         }
@@ -134,8 +132,6 @@ class Search: NSObject{
     
     func successOk(json:AnyObject){
         self.dataUser = json as! NSDictionary
-        //println(dataUser)
-        //println("//////////////////////")
         
         if(dataUser.valueForKey("documentation_url") as? String != "https://developer.github.com/v3"){
             NSOperationQueue.mainQueue().addOperationWithBlock {
@@ -169,7 +165,7 @@ class Search: NSObject{
     }
     
     func successTagOk(json:AnyObject){
-        self.array = json as! NSMutableArray
+        self.array = json as! NSArray
     }
     
     func successPullOk(json:AnyObject){
