@@ -18,9 +18,9 @@ class CelulaViewController: UIViewController {
     var width = UIScreen.mainScreen().bounds.size.width/2
     var tituloLabel = String()
     var celulaClicada = NSIndexPath()
-    var arrayMedalhas = ["bronze1","bronze2","bronz3","prata1","prata2","prata3","ouro1","ouro2","ouro3"]
+    var arrayMedalhas : NSArray!
     var dicionarioTeste = [String:String]()
-    
+    let searchUser: Search = Search.sharedInstance
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,7 +29,15 @@ class CelulaViewController: UIViewController {
         labelTitulo.text = tituloLabel
                 
         dicionarioTeste[tituloLabel] = "bronze"
+        
+         arrayMedalhas =  searchUser.buscarTags(tituloLabel)
+        
+        while arrayMedalhas == nil {}
+        
+        
         self.criarLabels()
+        println(tituloLabel)
+        println(arrayMedalhas)
 
     }
     func criarTitulo(mensagem: NSNotification){
@@ -53,7 +61,6 @@ class CelulaViewController: UIViewController {
             var label = UILabel(frame: CGRectMake(0, 0, 200, 21))
             label.center = CGPointMake(CGFloat(largura) ,CGFloat(altura) )
             label.textAlignment = NSTextAlignment.Left
-            label.text = arrayMedalhas[i]
             label.text = dicionarioTeste[tituloLabel]
             self.view.addSubview(label)
             i++
@@ -68,6 +75,9 @@ class CelulaViewController: UIViewController {
     }
     
     @IBAction func BotaoVoltar(sender: AnyObject) {
+        
+        arrayMedalhas = nil
+        
             dismissViewControllerAnimated(true, completion: nil)
     }
 
