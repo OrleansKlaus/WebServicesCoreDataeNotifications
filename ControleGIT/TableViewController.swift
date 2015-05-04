@@ -38,8 +38,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.createImage()
         
         /////-----------MATHEUS ---------AQUI ---------------------------
-        println(searchUser.buscarTags("iDicionario"))
-        
+        println("lalala")
+//        println(searchUser.buscarTags("iDicionario"))
+        println("lalala")
         arrayMackmobile = searchUser.searchMackMobile()
 
         println(arrayMackmobile)
@@ -81,6 +82,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     @IBAction func Sair(sender: AnyObject) {
+        searchUser.arrayMackAux = nil
+        searchUser.arrayMackMobile = nil
         dismissViewControllerAnimated(true, completion: nil)
     }
     

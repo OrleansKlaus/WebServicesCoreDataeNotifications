@@ -53,6 +53,7 @@ class ViewController: UIViewController {
         searchUser.user1 = userName.text
         searchUser.senha = password.text
         searchUser.buscaUsuario()
+        searchUser.searchMackMobile()
         indicador.hidden = false
         indicador.startAnimating()
         
