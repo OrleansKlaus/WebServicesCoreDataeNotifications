@@ -37,6 +37,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         avatar = UIImage(data: data!)
         self.createImage()
         
+        /////-----------MATHEUS ---------AQUI ---------------------------
+        println(searchUser.buscarTags("iDicionario"))
+        
         arrayMackmobile = searchUser.searchMackMobile()
 
         println(arrayMackmobile)
