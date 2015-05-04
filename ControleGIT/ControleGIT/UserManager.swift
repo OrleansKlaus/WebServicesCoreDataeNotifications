@@ -16,13 +16,9 @@ public class UserManager {
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var u = appDelegate.managedObjectContext
         return u!
+        
         }()
-    // Add Usuarios
-    var user: User = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: managedObjectContext) as! User
-    user.user = "OrleansKlaus"
-    user.password = "123"
-    //        user.photo = foto
-    user.repositorio = Repositorio()
+
     
     private init(){}
     
