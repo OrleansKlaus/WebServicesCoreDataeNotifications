@@ -41,6 +41,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
         println(arrayMackmobile)
         
+        myTableView.reloadData()
+        
     }
     
     func createImage(){
@@ -78,6 +80,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func Sair(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let celula = sender as? UITableViewCell
         {

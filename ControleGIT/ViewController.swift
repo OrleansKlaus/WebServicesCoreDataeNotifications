@@ -75,7 +75,7 @@ class ViewController: UIViewController {
             }
         }else{
             AudioServicesPlaySystemSound(1352)
-            
+            self.shakeView()
             ///
             userName.text = ""
             password.text = ""
@@ -87,6 +87,24 @@ class ViewController: UIViewController {
         
     }
     
+    func shakeView(){
+        var shake:CABasicAnimation = CABasicAnimation(keyPath: "position")
+        shake.duration = 0.1
+        shake.repeatCount = 2
+        shake.autoreverses = true
+        
+        var from_point:CGPoint = CGPointMake(view.center.x - 5, view.center.y)
+        var from_value:NSValue = NSValue(CGPoint: from_point)
+        
+        var to_point:CGPoint = CGPointMake(view.center.x + 5, view.center.y)
+        var to_value:NSValue = NSValue(CGPoint: to_point)
+        
+        shake.fromValue = from_value
+        shake.toValue = to_value
+        view.layer.addAnimation(shake, forKey: "position")
+    }
+    
+
     
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
