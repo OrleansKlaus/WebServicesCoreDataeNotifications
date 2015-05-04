@@ -24,7 +24,7 @@ class Search: NSObject{
     var pronto = Bool()
     
     var repositorios: NSMutableArray!
-    var arrayMackAux: NSDictionary!
+    var arrayMackAux: NSMutableDictionary!
     var arrayMackMobile: NSMutableArray!
     
     var array: NSArray!
@@ -83,7 +83,10 @@ class Search: NSObject{
                     }
                 }
             }
-            arrayMackAux = nil;
+//            if arrayMackAux != nil {
+//               arrayMackAux.removeAllObjects()
+//            }
+            arrayMackAux = nil
         }
         return arrayMackMobile
     }
@@ -164,7 +167,7 @@ class Search: NSObject{
     }
     
     func successMackOk(json:AnyObject){
-        self.arrayMackAux = json as! NSDictionary
+        self.arrayMackAux = json as! NSMutableDictionary
     }
     
     func successTagOk(json:AnyObject){
