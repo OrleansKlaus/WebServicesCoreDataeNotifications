@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox
+import CoreData
 
 class ViewController: UIViewController {
     
@@ -38,7 +39,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         indicador.hidden = true
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
     override func didReceiveMemoryWarning() {

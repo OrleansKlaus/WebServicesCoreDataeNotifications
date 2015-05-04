@@ -20,7 +20,7 @@
     </entity>
     <elements>
         <element name="Repositorio" positionX="-108" positionY="-136" width="128" height="90"/>
-        <element name="Tag" positionX="36" positionY="-243" width="128" height="30"/>
+        <element name="Tag" positionX="70" positionY="-243" width="128" height="120"/>
         <element name="User" positionX="-281" positionY="-94" width="128" height="105"/>
     </elements>
 </model>
