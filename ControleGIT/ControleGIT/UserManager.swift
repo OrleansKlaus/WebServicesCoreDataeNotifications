@@ -16,7 +16,9 @@ public class UserManager {
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         var u = appDelegate.managedObjectContext
         return u!
+        
         }()
+
     
     private init(){}
     
@@ -34,19 +36,19 @@ public class UserManager {
         }
     }
     
-    func buscarUsers()->Array<user>
+    func buscarUsers()->Array<User>
     {
         let fetchRequest = NSFetchRequest(entityName: UserManager.entityName)
         var error:NSError?
         
         let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
         
-        if let results = fetchedResults as? [user] {
+        if let results = fetchedResults as? [User] {
             return results
         } else {
             println("Não pode buscar registros. Error: \(error), \(error!.userInfo)")
         }
-        return Array<user>()
+        return Array<User>()
     }
 }
 

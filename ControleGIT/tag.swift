@@ -16,5 +16,5 @@ class Tag: NSManagedObject {
     @NSManaged var data: NSDate
     @NSManaged var descricao: String
     @NSManaged var titulo: String
-
+    @NSManaged var repositorio: Repositorio
 }

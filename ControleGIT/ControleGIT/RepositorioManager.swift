@@ -20,9 +20,9 @@ public class RepositorioManager {
     
     private init(){}
     
-    func novoRepositorio()->repositorio
+    func novoRepositorio()->Repositorio
     {
-        return NSEntityDescription.insertNewObjectForEntityForName(RepositorioManager.entityName, inManagedObjectContext: managedContext) as! repositorio
+        return NSEntityDescription.insertNewObjectForEntityForName(RepositorioManager.entityName, inManagedObjectContext: managedContext) as! Repositorio
     }
     
     func salvar()
@@ -34,19 +34,19 @@ public class RepositorioManager {
         }
     }
     
-    func buscarRepositorios()->Array<repositorio>
+    func buscarRepositorios()->Array<Repositorio>
     {
         let fetchRequest = NSFetchRequest(entityName: RepositorioManager.entityName)
         var error:NSError?
         
         let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
         
-        if let results = fetchedResults as? [repositorio] {
+        if let results = fetchedResults as? [Repositorio] {
             return results
         } else {
             println("Não pode buscar registros. Error: \(error), \(error!.userInfo)")
         }
-        return Array<repositorio>()
+        return Array<Repositorio>()
     }
     
 }
