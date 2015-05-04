@@ -29,7 +29,8 @@ class Search: NSObject{
     
     var array: NSArray!
     var userPull: NSDictionary!
-    
+    var tags : NSMutableArray!
+
     private override init(){
         super.init()
     }
@@ -90,7 +91,6 @@ class Search: NSObject{
     func buscarTags(nomeRepo: String) -> NSMutableArray{
         var page = 0
         var arrayCompleto = NSMutableArray()
-        var tags = NSMutableArray()
         do {
             let url = NSURL(string: "https://api.github.com/repos/mackmobile/\(nomeRepo)/pulls?state=all&page=\(page)")
             JSONService.GET(url!, user: user1, password: senha).success(self.successTagOk, queue: nil).failure(throwError, queue: NSOperationQueue.mainQueue())
@@ -124,7 +124,10 @@ class Search: NSObject{
                 for var i=0; i < labels.count; i++ {
                     tags = labels as! NSMutableArray
                 }
+            }else {
+                tags = NSMutableArray()
             }
+             
         }
         
         return tags

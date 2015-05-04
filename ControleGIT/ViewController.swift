@@ -53,7 +53,6 @@ class ViewController: UIViewController {
         searchUser.user1 = userName.text
         searchUser.senha = password.text
         searchUser.buscaUsuario()
-        searchUser.searchMackMobile()
         indicador.hidden = false
         indicador.startAnimating()
         
@@ -72,6 +71,8 @@ class ViewController: UIViewController {
                 self.signInLabel.hidden = false
                 self.indicador.stopAnimating()
                 self.indicador.hidden = true
+                self.searchUser.searchMackMobile()
+
                 
             }
         }else{
@@ -87,6 +88,7 @@ class ViewController: UIViewController {
         
         
     }
+    
     
     func shakeView(){
         var shake:CABasicAnimation = CABasicAnimation(keyPath: "position")

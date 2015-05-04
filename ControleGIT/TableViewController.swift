@@ -83,7 +83,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBAction func Sair(sender: AnyObject) {
         searchUser.arrayMackAux = nil
-        searchUser.arrayMackMobile = nil
+        searchUser.arrayMackMobile.removeAllObjects()
         dismissViewControllerAnimated(true, completion: nil)
     }
     

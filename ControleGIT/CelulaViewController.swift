@@ -32,7 +32,7 @@ class CelulaViewController: UIViewController {
         
          arrayMedalhas =  searchUser.buscarTags(tituloLabel)
         
-        while arrayMedalhas == nil {}
+        while searchUser.tags == nil {}
         
         
         self.criarLabels()
@@ -76,8 +76,8 @@ class CelulaViewController: UIViewController {
     
     @IBAction func BotaoVoltar(sender: AnyObject) {
         
+        searchUser.tags = nil
         arrayMedalhas = nil
-        
             dismissViewControllerAnimated(true, completion: nil)
     }
 
