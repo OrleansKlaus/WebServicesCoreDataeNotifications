@@ -9,12 +9,12 @@
 import Foundation
 import CoreData
 
-@objc(user)
-class user: NSManagedObject {
+@objc(User)
+class User: NSManagedObject {
 
     @NSManaged var password: String
     @NSManaged var photo: NSData
     @NSManaged var user: String
-    @NSManaged var repositorios: repositorio
+    @NSManaged var repositorio: Repositorio
 
 }

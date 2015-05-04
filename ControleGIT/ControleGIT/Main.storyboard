@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rnD-rI-qey">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rnD-rI-qey">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -29,8 +29,8 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="uBm-d0-XyQ"/>
                                         <exclude reference="Tbm-12-5dg"/>
+                                        <exclude reference="uBm-d0-XyQ"/>
                                     </mask>
                                 </variation>
                             </textField>
@@ -52,8 +52,8 @@
                                     <action selector="signIn:" destination="1Sg-Tq-UZx" eventType="touchUpInside" id="12s-mJ-DM1"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lAg-T7-5na">
-                                <rect key="frame" x="290" y="355" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="lAg-T7-5na">
+                                <rect key="frame" x="290" y="381" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -77,13 +77,13 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="t2w-pf-dHR"/>
-                                <exclude reference="Wha-v1-E90"/>
                                 <exclude reference="StQ-Lc-vMz"/>
+                                <exclude reference="Wha-v1-E90"/>
                                 <exclude reference="jya-IX-ri1"/>
+                                <exclude reference="t2w-pf-dHR"/>
                                 <exclude reference="0Ln-I2-GLN"/>
-                                <exclude reference="ZRw-V8-z4a"/>
                                 <exclude reference="BXN-bC-HOs"/>
+                                <exclude reference="ZRw-V8-z4a"/>
                                 <exclude reference="CWP-AZ-L8h"/>
                             </mask>
                         </variation>
@@ -165,8 +165,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="SzK-XH-leT"/>
                                 <exclude reference="7U3-oQ-gk7"/>
+                                <exclude reference="SzK-XH-leT"/>
                             </mask>
                         </variation>
                     </view>
@@ -258,8 +258,8 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="SB3-Ju-4vU"/>
                                         <exclude reference="16C-zN-NM5"/>
+                                        <exclude reference="SB3-Ju-4vU"/>
                                     </mask>
                                 </variation>
                             </textField>
@@ -306,13 +306,13 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="54R-Od-S5y"/>
                                 <exclude reference="3Aq-yn-9G1"/>
-                                <exclude reference="Mcf-8Q-cv2"/>
+                                <exclude reference="54R-Od-S5y"/>
                                 <exclude reference="5zh-hm-wBb"/>
+                                <exclude reference="Mcf-8Q-cv2"/>
                                 <exclude reference="JEH-PD-blp"/>
-                                <exclude reference="ZlL-bb-JqV"/>
                                 <exclude reference="V6Y-ID-VwG"/>
+                                <exclude reference="ZlL-bb-JqV"/>
                                 <exclude reference="hFK-IA-fSo"/>
                             </mask>
                         </variation>
@@ -450,8 +450,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="tfe-sk-OK9"/>
                                 <exclude reference="nSM-se-1Qb"/>
+                                <exclude reference="tfe-sk-OK9"/>
                             </mask>
                         </variation>
                     </view>

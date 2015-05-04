@@ -74,7 +74,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = myTableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
         
-        cell.textLabel?.text = self.arrayMackmobile[indexPath.row].valueForKey("parent")?.valueForKey("name") as! String
+        cell.textLabel?.text = self.arrayMackmobile[indexPath.row].valueForKey("parent")?.valueForKey("name") as? String
         return cell
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -84,7 +84,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return "Repositórios do Mackmobile"
     }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         println("You selected cell #\(indexPath.row)!")
         
     }
